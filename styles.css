@@ -1,0 +1,681 @@
+
+/* CORES E CONFIGURAÇÕES GERAIS */
+:root {
+    --black: #0b0b0f;
+    --panel: #16161d;
+    --red: #e10600;
+    --white: #f5f5f7;
+    --muted: #8b8b96;
+    --line: #2a2a33;
+
+    --ferrari: #e10600;
+    --mclaren: #ff8700;
+    --mercedes: #00d2be;
+    --redbull: #3671c6;
+    --audi: #a7a7b2;
+
+    --font: 'Titillium Web', 'Segoe UI', sans-serif;
+}
+
+/* RESET */
+*, *::before, *::after {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* CONFIGURAÇÕES DO SITE */
+body {
+    font-family: var(--font);
+    background: var(--black);
+    color: var(--white);
+}
+
+a {
+    text-decoration: none;
+}
+
+.container {
+    width: min(1180px, 92%);
+    margin: 0 auto;
+}
+
+/* CABEÇALHO */
+.topbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 14px 3%;
+    border-bottom: 1px solid var(--line);
+}
+
+.logo {
+    font-size: 1.3rem;
+    font-weight: 900;
+    font-style: italic;
+    color: var(--white);
+}
+
+.logo span {
+    color: var(--red);
+}
+
+.menu {
+    display: flex;
+    gap: 32px;
+}
+
+.menu a {
+    color: var(--muted);
+    font-size: 0.85rem;
+    font-weight: 700;
+    text-transform: uppercase;
+    transition: color 0.3s;
+}
+
+.menu a:hover {
+    color: var(--white);
+}
+
+/* BOTÕES */
+.btn-primary {
+    display: inline-block;
+    padding: 10px 20px;
+    background: var(--red);
+    color: var(--white);
+    border: none;
+    font-family: var(--font);
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+.btn-primary:hover {
+    background: #b80500;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 10px 20px;
+    color: var(--white);
+    border: 2px solid var(--white);
+    font-family: var(--font);
+    font-weight: 900;
+    text-transform: uppercase;
+    transition: background 0.3s, color 0.3s;
+}
+
+.btn-secondary:hover {
+    background: var(--white);
+    color: var(--black);
+}
+
+/* BANNER PRINCIPAL */
+.hero {
+    min-height: 374px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    overflow: hidden;
+    padding: 40px 3%;
+    background: var(--black);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 3;
+    width: 58%;
+}
+
+.eyebrow {
+    color: var(--red);
+    font-size: 0.8rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+.hero h1 {
+    font-size: 4rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 0.9;
+    text-transform: uppercase;
+    margin: 15px 0;
+}
+
+.hero h1 span {
+    display: block;
+    color: var(--red);
+}
+
+.hero-description {
+    max-width: 360px;
+    color: var(--muted);
+    margin-top: 18px;
+    line-height: 1.5;
+}
+
+.hero-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 20px;
+}
+
+/* IMAGEM DO CARRO */
+.hero-image {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 44%;
+    height: 100%;
+    z-index: 1;
+    background:
+        linear-gradient(
+            rgba(11, 11, 15, 0.15),
+            rgba(11, 11, 15, 0.45)
+        ),
+        url("img/piloto.jpg") center center / cover no-repeat;
+    clip-path: polygon(32% 0, 100% 0, 100% 100%, 0 100%);
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    padding: 25px 15px;
+}
+
+/* FAIXA VERMELHA DIAGONAL */
+.hero::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 56%;
+    width: 17%;
+    height: 100%;
+    background: var(--red);
+    clip-path: polygon(82% 0, 100% 0, 18% 100%, 0 100%);
+    z-index: 2;
+}
+
+/* INFORMAÇÕES DA PISTA */
+.track-info {
+    display: flex;
+    gap: 30px;
+    margin-top: 35px;
+}
+
+.info {
+    padding-left: 15px;
+    border-left: 3px solid var(--red);
+}
+
+.info strong {
+    display: block;
+    font-size: 1.5rem;
+}
+
+.info span {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+}
+
+.hero-image .track-info {
+    position: relative;
+    z-index: 3;
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    margin: 0;
+}
+
+.hero-image .info {
+    padding: 0;
+    border: none;
+    text-align: center;
+}
+
+.hero-image .info strong {
+    font-size: 1.8rem;
+    font-style: italic;
+    font-weight: 900;
+}
+
+.hero-image .info span {
+    font-size: 0.7rem;
+    color: var(--white);
+}
+
+/* FAIXA VERMELHA E BRANCA */
+.kerb {
+    height: 10px;
+    background: repeating-linear-gradient(
+        90deg,
+        var(--red) 0,
+        var(--red) 30px,
+        var(--white) 30px,
+        var(--white) 60px
+    );
+}
+
+/* TÍTULOS DAS SEÇÕES */
+#pilotos,
+#classificacao {
+    padding-top: 55px;
+}
+
+.section-heading {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.section-heading h2 {
+    font-size: 2rem;
+    font-weight: 900;
+    font-style: italic;
+    text-transform: uppercase;
+}
+
+/* CARTÕES DOS PILOTOS */
+.drivers {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+}
+
+.driver-card {
+    background: var(--panel);
+    border-top: 5px solid var(--team);
+    padding: 24px;
+    transition: transform 0.3s;
+}
+
+.driver-card:hover {
+    transform: translateY(-6px);
+}
+
+.car-number {
+    display: block;
+    font-size: 5rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    color: var(--team);
+    opacity: 0.75;
+}
+
+.driver-card h3 {
+    font-size: 1rem;
+    font-weight: 700;
+}
+
+.driver-card p {
+    color: var(--muted);
+    font-size: 0.8rem;
+}
+
+.driver-card.ferrari {
+    --team: var(--ferrari);
+}
+
+.driver-card.mclaren {
+    --team: var(--mclaren);
+}
+
+.driver-card.mercedes {
+    --team: var(--mercedes);
+}
+
+.driver-card.redbull {
+    --team: var(--redbull);
+}
+
+.driver-card.audi {
+    --team: var(--audi);
+}
+
+/* FILTROS DA CLASSIFICAÇÃO */
+.filters {
+    display: flex;
+    align-items: end;
+    gap: 15px;
+    margin-bottom: 20px;
+}
+
+.filter-item {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.filter-item label {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.filter-item input,
+.filter-item select {
+    width: 100%;
+    min-height: 46px;
+    padding: 12px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 0.9rem;
+    outline: none;
+    color-scheme: dark;
+}
+
+.filter-item input:focus,
+.filter-item select:focus {
+    border-color: var(--red);
+}
+
+.filter-item select option {
+    background: var(--panel);
+    color: var(--white);
+}
+
+/* BOTÃO FILTRAR */
+.filter-button {
+    min-height: 46px;
+    padding: 12px 20px;
+    background: transparent;
+    border: 1px solid var(--line);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 0.9rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.filter-button:hover {
+    border-color: var(--red);
+    color: var(--red);
+}
+
+/* TABELA DE CLASSIFICAÇÃO */
+.table-container {
+    width: 100%;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    background: var(--panel);
+}
+
+th {
+    color: var(--muted);
+    font-size: 0.8rem;
+    text-transform: uppercase;
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+    letter-spacing: 1px;
+}
+
+td {
+    padding: 14px;
+    border-bottom: 1px solid var(--line);
+    font-size: 0.9rem;
+}
+
+.pos {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 32px;
+    height: 32px;
+    background: var(--white);
+    color: var(--black);
+    font-weight: 900;
+}
+
+.leader {
+    background: rgba(225, 6, 0, 0.12);
+}
+
+.leader .pos {
+    background: var(--red);
+    color: var(--white);
+}
+
+.bar {
+    display: inline-block;
+    width: 4px;
+    height: 18px;
+    background: var(--team);
+    margin-right: 8px;
+    vertical-align: middle;
+}
+
+tbody tr:hover {
+    background: #1e1e28;
+}
+
+/* ÁREA DE INGRESSOS */
+.tickets {
+    display: grid;
+    grid-template-columns: 1fr 1.6fr;
+    gap: 42px;
+    padding-top: 80px;
+    padding-bottom: 30px;
+    align-items: start;
+}
+
+.tickets-info h2 {
+    font-size: 3rem;
+    font-weight: 900;
+    font-style: italic;
+    line-height: 1;
+    margin: 10px 0 25px;
+}
+
+.tickets-info > p:not(.eyebrow) {
+    color: var(--muted);
+    margin: 25px 0;
+}
+
+.ticket-alert {
+    background: rgba(255, 204, 0, 0.10);
+    border-left: 4px solid #ffcc00;
+    color: #ffcc00;
+    padding: 15px;
+    margin: 25px 0;
+    font-weight: 600;
+}
+
+.ticket-price {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 0;
+    border-bottom: 1px solid var(--line);
+}
+
+.ticket-price strong {
+    color: var(--red);
+}
+
+/* FORMULÁRIO DE INGRESSOS */
+.ticket-form {
+    background: var(--panel);
+    border-top: 4px solid var(--red);
+    padding: 30px;
+}
+
+.form-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    color: var(--muted);
+    font-size: 0.8rem;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px;
+    background: var(--black);
+    border: 1px solid var(--line);
+    color: var(--white);
+    font-family: var(--font);
+    font-size: 0.9rem;
+}
+
+.form-group input,
+.form-group select {
+    min-height: 46px;
+}
+
+.form-group textarea {
+    resize: vertical;
+}
+
+.form-group small {
+    color: var(--muted);
+    font-size: 0.75rem;
+}
+
+.full {
+    grid-column: 1 / -1;
+}
+
+.ticket-form .btn-primary {
+    width: 100%;
+    padding: 15px;
+}
+
+/* RODAPÉ */
+footer {
+    padding: 30px 4%;
+    margin-top: 50px;
+    border-top: 1px solid var(--line);
+    text-align: center;
+    color: var(--muted);
+    font-size: 0.85rem;
+}
+
+/* RESPONSIVIDADE PARA TABLETS E CELULARES */
+@media (max-width: 768px) {
+
+    .menu {
+        display: none;
+    }
+
+    .hero {
+        min-height: auto;
+        padding: 40px 5%;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 3.2rem;
+    }
+
+    .hero-image {
+        position: relative;
+        width: 100%;
+        height: 250px;
+        clip-path: none;
+        margin-top: 30px;
+    }
+
+    .hero::after {
+        display: none;
+    }
+
+    .hero-image .track-info {
+        flex-wrap: wrap;
+        gap: 18px;
+    }
+
+    .drivers {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .filters {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .table-container {
+        overflow-x: auto;
+    }
+
+    table {
+        min-width: 620px;
+    }
+
+    td {
+        white-space: nowrap;
+    }
+
+    .tickets {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+
+    .form-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .full {
+        grid-column: 1;
+    }
+
+    .ticket-form {
+        padding: 20px;
+    }
+}
+
+/* AJUSTES PARA TELAS PEQUENAS */
+@media (max-width: 480px) {
+
+    .drivers {
+        grid-template-columns: 1fr;
+    }
+
+    .hero h1 {
+        font-size: 2.7rem;
+    }
+
+    .section-heading h2 {
+        font-size: 1.6rem;
+    }
+
+    .hero-buttons {
+        flex-direction: column;
+        align-items: flex-start;
+    }
+
+    .track-info {
+        gap: 15px;
+    }
+}
